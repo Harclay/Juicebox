@@ -7,9 +7,19 @@ usersRouter.use((req, res, next) => {
   next();
 });
 
+
+
 usersRouter.get('/', async (req, res) => {
   const users = await getAllUsers();
-  res.send({ users });
+
+  res.send({
+    users
+  });
+});
+
+usersRouter.post('/login', async (req, res, next) => {
+  console.log(req.body);
+  res.end();
 });
 
 module.exports = usersRouter;
