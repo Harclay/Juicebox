@@ -1,6 +1,6 @@
 const { Client } = require('pg') // imports the pg module
 
-const client = new Client('postgres://localhost:5432/juicebox-dev');
+const client = new Client('postgres://juicebox_cko2_user:EJnNPWOl1ryMQH5gkbyiyyCtHUJSo44M@dpg-chk9ptm4dadfmsjb47k0-a.ohio-postgres.render.com/juicebox_cko2');
 
 async function getAllUsers() {
   const { rows } = await client.query(
