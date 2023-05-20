@@ -1,6 +1,6 @@
 const express = require('express');
 const apiRouter = express.Router();
-
+require('dotenv').config();
 
 const jwt = require('jsonwebtoken');
 const { getUserById } = require('../db');
@@ -32,6 +32,14 @@ apiRouter.use(async (req, res, next) => {
       message: `Authorization token must start with ${ prefix }`
     });
   }
+});
+
+apiRouter.use((req, res, next) => {
+  if (req.user) {
+    console.log("User is set:", req.user);
+  }
+
+  next();
 });
 
 const usersRouter = require('./users');
