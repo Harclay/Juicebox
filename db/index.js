@@ -1,7 +1,10 @@
-const { Client } = require('pg') // imports the pg module
+const { Client } = require('pg'); // imports the pg module
+const { connectionString } = require('pg/lib/defaults');
+
+const connectionString = process.env.DATABASE_URL
 
 const client = new Client({
-  connectionString: 'postgres://juicebox_cko2_user:EJnNPWOl1ryMQH5gkbyiyyCtHUJSo44M@dpg-chk9ptm4dadfmsjb47k0-a.ohio-postgres.render.com/juicebox_cko2',
+  connectionString,
   ssl: true, 
 });
 
