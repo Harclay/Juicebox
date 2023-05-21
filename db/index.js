@@ -1,5 +1,5 @@
 const { Client } = require('pg'); // imports the pg module
-const { connectionString } = require('pg/lib/defaults');
+
 
 const connectionString = process.env.DATABASE_URL
 
