@@ -1,12 +1,14 @@
-const { Client } = require('pg'); // imports the pg module
+const { Client } = require('pg');
 
-
-const connectionString = process.env.DATABASE_URL
+const connectionString = process.env.DATABASE_URL;
 
 const client = new Client({
   connectionString,
-  ssl: true, 
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
+
 
 async function getAllUsers() {
   const { rows } = await client.query(
